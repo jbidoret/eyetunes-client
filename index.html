@@ -1,0 +1,104 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <title>eyetunes</title>
+
+        <link rel="stylesheet" href="/public/css/main.css">
+        <link rel="stylesheet" href="/public/css/fonts.css">
+        <link rel="stylesheet" href="/public/css/circle.css">
+        <link rel="stylesheet" href="/public/css/swiper.min.css">
+
+    </head>
+    <body class="altnav">
+
+        <div id="overlay"></div>
+        <div id="message"></div>
+
+        <div id="videos_container"></div>
+
+        <div id="playlist"></div>
+
+        <div id="page">
+            <div id="nav">
+                <div id="prev">«</div>
+                <div id="close">x</div>
+                <div id="add">+</div>
+                <div id="help">?</div>
+                <div id="next">»</div>
+            </div>
+            <div id="content">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper" id="swiper"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="tpl" style="display: none">
+            <div class="data images"></div>
+
+            <div class="info">
+                <h2 class="data author"></h2>
+                <h1 class="data title"></h1>
+                <h3>
+                    <span class="data country"></span>,
+                    <span class="data date"></span>,
+                    <span class="data duration"></span>
+                    <span class="data music"></span>
+                </h3>
+                <p class="data extra"></p>
+                <p class="data text"></p>
+                <p class="data bio"></p>
+                <p class="data url"></p>
+            </div>
+        </div>
+
+        <div id="container" style="z-index: 90000; position: absolute; background: red; width:500px; height:500px;"></div>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+          var socket = io();
+        </script>
+        <script src="/public/js/jquery.js"></script>
+        <script src="/public/js/jquery.wait.js"></script>
+        <script src="/public/js/swiper.jquery.min.js"></script>
+        <script src="/public/js/data.js"></script>
+        <script src="/public/js/main.js"></script>
+
+        <script src="/public/caress/hammer.js"></script>
+        <script src="/public/caress/underscore-1.3.3.min.js"></script>
+        <script src="/public/caress/jquery.hammer.js"></script>
+        <script src="/public/caress/caress-0.1.0.js"></script>
+
+       
+        <script>
+    $(function() {
+        window.client = new Caress.Client({
+            host: 'localhost',
+            port: 5000
+        });
+        client.connect();
+    });
+
+    window.onerror = function(ev) {
+        console.log(ev);
+    };
+
+    var debug_el = $("#container");
+    function log(str) {
+        debug_el.prepend(str +"<br>");
+    }
+
+    var hammertime = new Hammer(document.getElementById("container"), {});
+    hammertime.on('tap doubletap press', function(ev) {
+        console.log(ev);
+    });
+
+   
+
+
+
+    </script>
+    </body>
+</html>
