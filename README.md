@@ -24,3 +24,16 @@ Eyetunes est une co-production [acces)s( cultures électroniques](http://acces-s
 ## Client
 
 Ce dépôt héberge le code client (vidéo projecteur), et permet le déploiement d’un simple serveur de médias qui obéit aux commandes (websockets) lancées depuis l’application eyetunes-server.
+
+
+## Mise en route
+
+```
+mkdir -p ~/Codo/node/ && cd ~/Codo/node/
+git clone git@github.com:jbidoret/eyetunes-client.git 
+cd eyetunes-client
+npm install
+node client.js
+```
+
+L’application est accessible sur l’ip du serveur http://SERVER_IP:5000/video/. Les vidéos sont lues depuis http://SERVER_IP:4444/
