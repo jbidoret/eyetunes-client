@@ -15,5 +15,5 @@ app.use('/public', express.static(path.join(__dirname + '/public')));
 
 
 http.listen(4444, function(){
-  console.log('listening on *:5000');
+  console.log('listening on *:4444');
 });
