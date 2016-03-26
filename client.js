@@ -6,7 +6,7 @@ var http = require('http').Server(app);
 
 
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/video.html');
+  res.sendFile(__dirname + '/video/');
 });
 
 //app.use(express.static(path.join(__dirname, 'public')));
